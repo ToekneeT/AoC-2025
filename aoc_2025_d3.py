@@ -16,6 +16,12 @@ import unittest
 # would be the largest number possible by figuring out the largest number at the smallest
 # index.
 
+# I attempted to use an enumerate function and storing digits: indexes into a dict.
+# Which then I would try and form the largest number possible with two digits that have the smallest index.
+# The largest tens digit would be an index that wasn't the last position for a bank.
+# However, I quickly found I was vastly over complicating the problem.
+# And ended up with too many nested loops that made me feel lost.
+
 
 with open("aoc_d3_input.txt") as file:
 	# Input is given with a single instruction per line.
@@ -33,6 +39,12 @@ def get_joltage_for_bank(bank: str) -> int:
 
 	return int(joltage)
 
+# ----- Part 2 -----
+# I spent a long time and just went straight into part 2 without writing my thoughts.
+# It was quite similar to the part 1, but instead we'd need to find 12 numbers instead of 2.
+# We'd make a sliding window that decreases with each iteration. The largest number would have to be
+# towards the start of the bank as it'd need to fit 11 more numbers after it.
+# So find largest number that occurs first, then get rid of it, and slowly shrink the window on the left side.
 
 def get_joltage_for_bank_twelve_batteries(bank: str) -> int:
 	battery_str: str = ""
