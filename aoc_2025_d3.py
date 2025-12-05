@@ -32,9 +32,11 @@ with open("aoc_d3_input.txt") as file:
 # Return the highest joltage for a bank.
 def get_joltage_for_bank(bank: str) -> int:
 	# highest number can't be at the end.
-	highest: int = max(bank[:-1])
+	highest: str = max(bank[:-1])
 	# second highest number would have to be any number after the index of the highest.
-	second_highest: int = max(bank[bank.index(highest)+1:])
+	second_highest: str = max(bank[bank.index(highest)+1:])
+	# Concate the numbers together. 123454 would be 5 and 4, being 54.
+	# If adding together ints, it'd be 9.
 	joltage: str = f"{highest}{second_highest}"
 
 	return int(joltage)
