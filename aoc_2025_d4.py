@@ -22,14 +22,14 @@ with open("aoc_d4_input.txt") as file:
 
 
 # Puts all the columns of the grid into a list and returns it.
-def transpose_grid(board):
-    cols = []
-    for i in range(len(board)):
-        col = []
-        for j in range(len(board)):
-            col.append(board[j][i])
-        cols.append(col)
-    return cols
+# def transpose_grid(board):
+#     cols = []
+#     for i in range(len(board)):
+#         col = []
+#         for j in range(len(board)):
+#             col.append(board[j][i])
+#         cols.append(col)
+#     return cols
 
 
 # Let's say we get a sub grid, 3x3 for each section.
@@ -109,7 +109,7 @@ def part_one(diagram: list[str]) -> int:
 	valid_roll: int = 0
 	for row in range(len(diagram)):
 		for col in range(len(diagram[row])):
-			if count_surrounding_rolls(diagram, row, col) < 4 and diagram[col][row] == "@":
+			if diagram[col][row] == "@" and count_surrounding_rolls(diagram, row, col) < 4:
 				valid_roll += 1
 
 	return valid_roll
@@ -137,7 +137,7 @@ def part_two(diagram: list[str]) -> int:
 		valid_roll_index: list[[int, int]] = []
 		for row in range(len(diagram)):
 			for col in range(len(diagram[row])):
-				if count_surrounding_rolls(diagram, row, col) < 4 and diagram[col][row] == "@":
+				if diagram[col][row] == "@" and count_surrounding_rolls(diagram, row, col) < 4:
 					valid_roll += 1
 					valid_roll_index.append([row, col])
 
