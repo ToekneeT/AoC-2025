@@ -62,7 +62,7 @@ def get_valid_ingredients(merged_ranges, available_ingredients):
 		for start, stop in merged_ranges:
 			if id >= start and id <= stop:
 				fresh_ingredients += 1
-				continue
+				break
 
 	return fresh_ingredients
 
